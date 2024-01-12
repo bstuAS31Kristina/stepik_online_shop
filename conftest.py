@@ -3,14 +3,16 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
+#def pytest_addoption(parser):
+    #parser.addoption('--browser_name', action='store', default=None,
+                     #help="Choose browser: chrome or firefox")
+
+
 def pytest_addoption(parser):
-    parser.addoption('--browser_name', action='store', default=None,
-                     help="Choose browser: chrome or firefox")
-
-
-def pytest_language(parser):
     parser.addoption('--language', action='store', default="en",
                      help="Set language")
+    parser.addoption('--browser_name', action='store', default=None,
+                     help="Choose browser: chrome or firefox")
 
 
 @pytest.fixture(scope="function")
