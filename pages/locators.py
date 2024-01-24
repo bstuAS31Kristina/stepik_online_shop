@@ -15,3 +15,7 @@ class ProductPageLocators():
     BUSCET_MINI = (By.CSS_SELECTOR, "div.basket-mini.pull-right.hidden-xs")
     BOOK_PRICE = (By.CSS_SELECTOR, "p.price_color")
     BOOK_NAME = (By.CSS_SELECTOR, "h1")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_invalid")
