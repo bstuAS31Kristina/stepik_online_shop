@@ -63,3 +63,8 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not found"
+
+
+    def go_to_basket(self):
+        basket_button = WebDriverWait(self.browser, 4).until(EC.element_to_be_clickable((self.browser.find_element(*BasePageLocators.BASKET_BUTTON))))
+        basket_button.click()
