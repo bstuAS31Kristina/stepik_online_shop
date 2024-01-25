@@ -1,5 +1,3 @@
-import selenium
-from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
@@ -56,7 +54,6 @@ class BasePage():
         except NoAlertPresentException:
             print("No second alert presented")
 
-
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
@@ -64,7 +61,10 @@ class BasePage():
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not found"
 
-
     def go_to_basket(self):
-        basket_button = WebDriverWait(self.browser, 4).until(EC.element_to_be_clickable((self.browser.find_element(*BasePageLocators.BASKET_BUTTON))))
+        basket_button = WebDriverWait(self.browser, 4).until(
+            EC.element_to_be_clickable((self.browser.find_element(*BasePageLocators.BASKET_BUTTON))))
         basket_button.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User is not authorized, probably should be"
